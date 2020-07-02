@@ -10,7 +10,7 @@
 #' @param eta control for thresholding \eqn{\in (0,1)}.
 #'
 #' @return a named list containing \describe{
-#' \item{Ahat}{an \eqn{(n\times p)} estimated matrix after completion.}
+#' \item{X}{an \eqn{(n\times p)} estimated matrix after completion, which is \eqn{\hat{A}} in the equation above.}
 #' }
 #'
 #' @examples
@@ -20,7 +20,7 @@
 #'
 #' ## transform 5% of entries into missing
 #' set.seed(5)
-#' A <- aux.rndmissing(lena128, x=0.10)
+#' A <- aux.rndmissing(lena128, x=0.05)
 #'
 #' ## apply the method with 3 different control 'eta'
 #' fill1 <- fill.USVT(A, eta=0.01)
@@ -28,11 +28,13 @@
 #' fill3 <- fill.USVT(A, eta=0.99)
 #'
 #' ## visualize only the last ones from each run
+#' opar <- par(no.readonly=TRUE)
 #' par(mfrow=c(2,2), pty="s")
 #' image(A, col=gray((0:100)/100), axes=FALSE, main="5% missing")
-#' image(fill1$Ahat, col=gray((0:100)/100), axes=FALSE, main="eta=0.01")
-#' image(fill2$Ahat, col=gray((0:100)/100), axes=FALSE, main="eta=0.5")
-#' image(fill3$Ahat, col=gray((0:100)/100), axes=FALSE, main="eta=0.99")
+#' image(fill1$X, col=gray((0:100)/100), axes=FALSE, main="eta=0.01")
+#' image(fill2$X, col=gray((0:100)/100), axes=FALSE, main="eta=0.5")
+#' image(fill3$X, col=gray((0:100)/100), axes=FALSE, main="eta=0.99")
+#' par(opar)
 #' }
 #'
 #' @references
@@ -103,6 +105,39 @@ fill.USVT <- function(A, eta=0.01){
   ##############################################################
   ## RETURN
   output = list()
-  output$Ahat = result
+  output$X = result
   return(output)
 }
+
+
+# ## load image data of 'lena128'
+# data(lena128)
+#
+# # some parameters
+# ngray = 64
+# missp = 0.1
+#
+# ## transform 5% of entries into missing
+# set.seed(5)
+# A = lena128
+# B = aux.rndmissing(lena128, x=missp)
+#
+# B1 = fill.simple(B, method="mean")
+# B2 = fill.HardImpute(B, lambdas=c(500,100,50), rk=100)
+# B3 = fill.OptSpace(B, ropt=15)
+# B4 = fill.nuclear(B)
+# B5 = fill.KNNimpute(B, k=5)
+# B6 = fill.SVDimpute(B, k=5)
+#
+# graphics.off()
+# x11(height = 5.5, width=9)
+# par(mfrow=c(2,4), mar=c(2, 2, 2, 2))
+# image(A, col=gray((0:ngray)/ngray), axes=FALSE, main="(A)")
+# image(B, col=gray((0:ngray)/ngray), axes=FALSE, main="(B)")
+# image(B1$X, col=gray((0:ngray)/ngray), axes=FALSE, main="(C)")
+# image(B2$X[,,3], col=gray((0:ngray)/ngray), axes=FALSE, main="(D)")
+# image(B3$X, col=gray((0:ngray)/ngray), axes=FALSE, main="(E)")
+# image(B4$X, col=gray((0:ngray)/ngray), axes=FALSE, main="(F)")
+# image(B5$X, col=gray((0:ngray)/ngray), axes=FALSE, main="(G)")
+# image(B6$X, col=gray((0:ngray)/ngray), axes=FALSE, main="(H)")
+# savePlot(filename="/home/kisung/Desktop/filling/paper/figure-1.png")
