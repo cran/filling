@@ -20,7 +20,7 @@
 #' }
 #'
 #'
-#' @docType package
+#' @noRd
 #' @name filling-package
 #' @import CVXR
 #' @import Rdpack

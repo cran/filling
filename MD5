@@ -1,4 +1,4 @@
-05498c50f1553a3d80fcfe42cf2584b8 *DESCRIPTION
+18fdeed2cdcb8c6db303ca33caf86346 *DESCRIPTION
 f142f1787fbd58ec16564135c168b659 *LICENSE
 92423c4fe6d06f6edf9672fe07d1eb7c *NAMESPACE
 58c38de47418b39c651e3cc769fb4890 *NEWS.md
@@ -14,12 +14,12 @@ fedf16484e41b9b4997fc4290efc3bba *R/fill_SVT.R
 24b1a2b2a98020b42835142af0534e30 *R/fill_USVT.R
 977ba72e66bac698b8b41f75b32424d9 *R/fill_nuclear.R
 d2f9f2f8c34836eabd9dbbf8359f1b37 *R/fill_simple.R
-322ddbcb7b95062e3f5a4023e0911851 *R/filling-package.R
+4927cdfc36d18a78cbb36b50da794a78 *R/filling-package.R
 fe30da8fd672ac3e4656da5e221fb828 *R/lena128.R
 57029800ff7b8e4a18caf4f6110dd849 *R/lena256.R
 b172d2608bacc6a1ec5da27dafb69df0 *R/lena64.R
-daebd24a74fd6c1108178c46e990e362 *R/zzz.R
-b08cb1d1321402c1efa0f5938841af23 *build/partial.rdb
+8732e9d5da8b8a786d8cb73b3110bfb5 *R/zzz.R
+c0d7cef8105b7fea905dbd57eb6a4f97 *build/partial.rdb
 859f3712f620694d6319643f17a80b4b *data/lena128.rda
 e7becee9520bbc3cf13b36ee30e20cbc *data/lena256.rda
 fa8dd6bbc24840be7e1e9bfae922dd79 *data/lena64.rda
@@ -34,12 +34,11 @@ b28d424f75f762b881bed242ed0929fe *man/fill_SVDimpute.Rd
 b6bf9502958544fefd3c5c586723f451 *man/fill_SoftImpute.Rd
 2a1201dbbf04f37b2c3fbc37e174113d *man/fill_nuclear.Rd
 35a6ef5ebf1953f33b2e59e010cf5483 *man/fill_simple.Rd
-b71b2752ee1808b13fb6230d2a3e9208 *man/filling-package.Rd
 c6509959d38aad4dddd5c8263b67115a *man/lena128.Rd
 18ae8fbcfdc1bbd3294c326501621ac9 *man/lena256.Rd
 ef1ffe155e4071c198d7ff45ad09487c *man/lena64.Rd
-09701c8ebd764937b1cf83e62bd23814 *src/Makevars
-09701c8ebd764937b1cf83e62bd23814 *src/Makevars.win
+36b6521f97e0eb88f7a870e68526b404 *src/Makevars
+36b6521f97e0eb88f7a870e68526b404 *src/Makevars.win
 c25063aedda634d6ab30f3639a74a5c9 *src/RcppExports.cpp
 8c58be17f0b454bfff4166e430bd83a4 *src/cppfill_HardImpute.cpp
 1091713c28da69208b858c54ab70c4de *src/cppfill_SVT.cpp
